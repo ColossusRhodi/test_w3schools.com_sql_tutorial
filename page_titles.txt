@@ -1,0 +1,67 @@
+SQL Tutorial
+SQL Introduction
+SQL Syntax
+SQL SELECT Statement
+SQL SELECT DISTINCT Statement
+SQL WHERE Clause
+SQL AND, OR, NOT Operators
+SQL ORDER BY Keyword
+SQL INSERT INTO Statement
+SQL NULL Values - IS NULL and IS NOT NULL
+SQL UPDATE Statement
+SQL DELETE Statement
+SQL SELECT TOP, LIMIT, ROWNUM
+SQL MIN() and MAX() Functions
+SQL COUNT(), AVG() and SUM() Functions
+SQL LIKE Operator
+SQL Wildcard Characters
+SQL IN Operator
+SQL BETWEEN Operator
+SQL Aliases
+SQL Joins
+SQL INNER JOIN Keyword
+SQL LEFT JOIN Keyword
+SQL RIGHT JOIN Keyword
+SQL FULL OUTER JOIN Keyword
+SQL Self JOIN
+SQL UNION Operator
+SQL GROUP BY Statement
+SQL HAVING Clause
+SQL EXISTS Operator
+SQL ANY and ALL Operators
+SQL SELECT INTO Statement
+SQL INSERT INTO SELECT Statement
+SQL CASE Statement
+SQL ISNULL(), NVL(), IFNULL() and COALESCE() Functions
+SQL Stored Procedures
+SQL Comments
+SQL CREATE DATABASE Statement
+SQL DROP DATABASE Statement
+SQL BACKUP DATABASE Statement
+SQL CREATE TABLE Statement
+SQL DROP TABLE Statement
+SQL ALTER TABLE Statement
+SQL Constraints
+SQL NOT NULL Constraint
+SQL UNIQUE Constraint
+SQL PRIMARY KEY Constraint
+SQL FOREIGN KEY Constraint
+SQL CHECK Constraint
+SQL DEFAULT Constraint
+SQL CREATE INDEX Statement
+SQL AUTO INCREMENT a Field
+Date Functions in SQL Server and MySQL
+SQL CREATE VIEW, REPLACE VIEW, DROP VIEW Statements
+SQL Injection
+SQL Hosting
+SQL Keywords Reference
+MySQL Functions
+SQL Server Functions
+MS Access Functions
+SQL Operators
+SQL Data Types for MySQL, SQL Server, and MS Access
+SQL Quick Reference
+SQL Examples
+SQL Quiz
+SQL Exercises
+W3Schools SQL Certificate
