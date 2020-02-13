@@ -2,7 +2,7 @@ import unittest
 from selenium import webdriver
 
 
-class NavigationInSQLTutorial(unittest.TestCase):
+class TestNavigationInSQLTutorial(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome('D:\chromedriver.exe')
         self.driver.get('https://www.w3schools.com/sql/sql_intro.asp')
