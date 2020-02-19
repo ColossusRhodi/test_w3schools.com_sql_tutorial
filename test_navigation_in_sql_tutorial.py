@@ -1,51 +1,82 @@
 import unittest
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from parameterized import parameterized
+from test_data import titles, urls
 
 
 class TestNavigationInSQLTutorial(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome('D:\chromedriver.exe')
-        self.driver.get('https://www.w3schools.com/sql/sql_intro.asp')
+
+    test_data_next_buttons = []
+    for url in urls:
+        index = urls.index(url)
+        test_data_next_buttons.append((url, titles[1:][index]))
+
+    @parameterized.expand(test_data_next_buttons)
+    def test_navigation_first_next_button(self, url, title):
+        self.driver.get(url)
         self.driver.maximize_window()
-
-    def test_navigation_use_first_next_button(self):
-        next_button = self.driver.find_element_by_css_selector('#main > div:nth-child(3) > a:nth-child(2)')
-        next_button.click()
+        next_buttons = self.driver.find_elements_by_css_selector('div.w3-clear.nextprev > a.w3-right.w3-btn')
+        next_buttons[0].click()
         page_title = self.driver.title
-        self.assertEqual("SQL Syntax", page_title)
+        self.assertEqual(title, page_title)
 
-    def test_navigation_use_second_next_button(self):
-        next_button = self.driver.find_element_by_css_selector('#main > div:nth-child(32) > a:nth-child(2)')
-        next_button.click()
+    @parameterized.expand(test_data_next_buttons)
+    def test_navigation_second_next_button(self, url, title):
+        self.driver.get(url)
+        self.driver.maximize_window()
+        next_buttons = self.driver.find_elements_by_css_selector('div.w3-clear.nextprev > a.w3-right.w3-btn')
+        next_buttons[1].click()
         page_title = self.driver.title
-        self.assertEqual("SQL Syntax", page_title)
+        self.assertEqual(title, page_title)
 
-    def test_navigation_use_first_previous_button(self):
-        previous_button = self.driver.find_element_by_css_selector('#main > div:nth-child(3) > a:nth-child(1)')
-        previous_button.click()
+    test_data_previous_buttons = []
+    for title in titles[:-2]:
+        index = titles[:-2].index(title)
+        test_data_previous_buttons.append((urls[1:][index], title))
+
+    @parameterized.expand(test_data_previous_buttons)
+    def test_navigation_first_previous_button(self, url, title):
+        self.driver.get(url)
+        self.driver.maximize_window()
+        previous_buttons = self.driver.find_elements_by_css_selector('div.w3-clear.nextprev > a.w3-left.w3-btn')
+        previous_buttons[0].click()
         page_title = self.driver.title
-        self.assertEqual("SQL Tutorial", page_title)
+        self.assertEqual(title, page_title)
 
-    def test_navigation_use_second_previous_button(self):
-        previous_button = self.driver.find_element_by_css_selector('#main > div:nth-child(32) > a:nth-child(1)')
-        previous_button.click()
+    @parameterized.expand(test_data_previous_buttons)
+    def test_navigation_use_second_previous_button(self, url, title):
+        self.driver.get(url)
+        self.driver.maximize_window()
+        previous_buttons = self.driver.find_element_by_css_selector('div.w3-clear.nextprev > a.w3-left.w3-btn')
+        previous_buttons[1].click()
         page_title = self.driver.title
-        self.assertEqual("SQL Tutorial", page_title)
+        self.assertEqual(title, page_title)
 
-    def test_navigation_use_left_nav_bar(self):
-        file_page_titles = open('page_titles.txt', 'r', encoding='utf8')
-        page_titles = file_page_titles.readlines()
-        file_page_titles.close()
+    test_data_left_nav_bar = []
+    for url in urls:
+        test_data_left_nav_bar.append((url, titles[:-1]))
 
-        for title in page_titles:
-            index = page_titles.index(title)
-            nav_bar_buttons = self.driver.find_elements_by_css_selector('#leftmenuinnerinner > a')
-            nav_bar_buttons[index].click()
+    @parameterized.expand(test_data_left_nav_bar)
+    def test_navigation_left_nav_bar(self, url, title):
+        self.driver.get(url)
+        self.driver.maximize_window()
+        main_window = self.driver.current_window_handle
+        nav_bar_buttons = self.driver.find_elements_by_css_selector('#leftmenuinnerinner > a')[:37]
+        for button in nav_bar_buttons:
+            index = nav_bar_buttons.index(button)
+            button.send_keys(Keys.CONTROL + Keys.RETURN)
+            self.driver.switch_to.window(self.driver.window_handles[1])
             page_title = self.driver.title
-            self.assertEqual(title.rstrip(), page_title)
+            self.assertEqual(title[index], page_title)
+            self.driver.close()
+            self.driver.switch_to.window(window_name=main_window)
 
     def tearDown(self):
         self.driver.quit()
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
