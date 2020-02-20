@@ -6,6 +6,7 @@ from test_open_and_run_sql_examples import TestOpenSQLExamples, TestRunSQLExampl
 from test_open_and_start_sql_exercises import TestOpenSQLExercises
 
 
+"""Collect all test cases and run them as a test suite."""
 open_sql_tutorial = unittest.TestLoader().loadTestsFromTestCase(TestOpenSQLTutorial)
 back_to_home_page_first_page = unittest.TestLoader().loadTestsFromTestCase(TestBackToHomePageFirstPage)
 back_to_home_page_other_pages = unittest.TestLoader().loadTestsFromTestCase(TestBackToHomePageOtherPages)
