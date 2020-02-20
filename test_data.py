@@ -131,3 +131,9 @@ sql_query_examples = [('SELECT * FROM Customers;', 'https://www.w3schools.com/sq
                       ('SELECT CustomerName, /*City,*/ Country FROM Customers;', 'https://www.w3schools.com/sql/sql_comments.asp'),
                       ("SELECT * FROM Customers WHERE (CustomerName LIKE 'L%' OR CustomerName LIKE 'R%' /*OR CustomerName LIKE 'S%' OR CustomerName LIKE 'T%'*/ OR CustomerName LIKE 'W%') AND Country='USA' ORDER BY CustomerName;", 'https://www.w3schools.com/sql/sql_comments.asp')
                       ]
+
+answers = (("SELECT",), ("select",), ("SELECT", "DISTINCT",), ("WHERE", "City", "'Berlin'",), ('SELECT', 'WHERE', 'AND', 'PostalCode',), ('ORDER BY', 'City',),
+           ('INSERT INTO', '(', ')', 'VALUES', '(', ')',), ('PostalCode', 'IS', 'NULL',), ('UPDATE', 'SET',), ('DELETE FROM', 'WHERE',), ('MIN(Price)',),
+           ('COUNT', 'WHERE',), ("WHERE City LIKE 'a%'",), ('_a',), ('WHERE Country IN', "('Norway',", ')',), ('BETWEEN 10 AND 20',), ('AS Pno',),
+           ('ON Orders.CustomerID', 'ON Orders.CustomerID',), ('INNER JOIN Customers',), ('RIGHT JOIN Customers',), ('COUNT', 'GROUP BY Country',)
+           )
